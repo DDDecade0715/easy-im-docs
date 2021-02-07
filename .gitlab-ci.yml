@@ -10,9 +10,8 @@ vue-build:
   only:
     - master
   script:
-    - npm cache verify
-    - npm install
-    - npm run build
+    - yarn install # npm install
+    - yarn docs:build # npm run docs:build
   cache:
     key: "$CI_PROJECT_NAME_$CI_JOB_NAME"
     paths:
