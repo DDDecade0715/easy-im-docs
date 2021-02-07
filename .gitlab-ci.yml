@@ -29,8 +29,6 @@ deploy-prod:
   only:
     - master
   stage: deploy
-  needs:
-    - vue-build
   script:
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
