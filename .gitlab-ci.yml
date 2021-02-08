@@ -10,8 +10,9 @@ vue-build:
   only:
     - master
   script:
-    - yarn install # npm install
-    - yarn docs:build # npm run docs:build
+    - npm cache verify
+    - npm install
+    - npm run build
   cache:
     key: "$CI_PROJECT_NAME_$CI_JOB_NAME"
     paths:
@@ -28,6 +29,8 @@ deploy-prod:
   only:
     - master
   stage: deploy
+  needs:
+    - vue-build
   script:
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
